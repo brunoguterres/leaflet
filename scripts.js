@@ -13,7 +13,7 @@ osm.addTo(map);
 
 var wmsLayer = L.Geoserver.wms('http://localhost:8080/geoserver/wms', {
     layers: 'cite:ottobacias_tiete_bho_2017_5k',
-    CQL_FILTER: "cobacia LIKE '8666%'",
+    CQL_FILTER: "cobacia LIKE '86669%'",
     attribution: ''
 });
 wmsLayer.addTo(map);
