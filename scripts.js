@@ -11,15 +11,15 @@ var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 });
 osm.addTo(map);
 
-var wmsLayer = L.Geoserver.wms('http://localhost:8080/geoserver/wms', {
+var wmsLayer_ottobacias_tiete = L.Geoserver.wms('http://localhost:8080/geoserver/wms', {
     layers: 'cite:ottobacias_tiete_bho_2017_5k',
     CQL_FILTER: "cobacia LIKE '8664%'",
     attribution: ''
 });
-wmsLayer.addTo(map);
+wmsLayer_ottobacias_tiete.addTo(map);
 
-var wmsLayer1 = L.Geoserver.wms("http://localhost:8080/geoserver/wms", {
+var wmsLayer = L.Geoserver.wms("http://localhost:8080/geoserver/wms", {
     layers: 'nurc:Img_Sample',
     attribution: ''
 });
-wmsLayer1.addTo(map);
+wmsLayer.addTo(map);
