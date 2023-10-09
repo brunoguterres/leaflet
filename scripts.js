@@ -1,4 +1,4 @@
-var map = L.map('map').setView([-22.015, -48.925], 7);
+var map = L.map('map').setView([-22.015, -48.925], 8);
 
 function onMapClick(e) {
     alert("You clicked the map at " + e.latlng);
@@ -13,13 +13,6 @@ osm.addTo(map);
 
 var wmsLayer_ottobacias_tiete = L.Geoserver.wms('http://localhost:8080/geoserver/wms', {
     layers: 'cite:ottobacias_tiete_bho_2017_5k',
-    CQL_FILTER: "cobacia LIKE '8664%'",
-    attribution: ''
+    attribution: 'ANA'
 });
 wmsLayer_ottobacias_tiete.addTo(map);
-
-var wmsLayer = L.Geoserver.wms("http://localhost:8080/geoserver/wms", {
-    layers: 'nurc:Img_Sample',
-    attribution: ''
-});
-wmsLayer.addTo(map);
