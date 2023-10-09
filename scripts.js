@@ -1,9 +1,11 @@
-var map = L.map('map').setView([-22.015, -48.925], 8);
+var map = L.map('map').setView([-25, -51], 7);
 
+/*
 function onMapClick(e) {
     alert("You clicked the map at " + e.latlng);
 }
 map.on('click', onMapClick);
+*/
 
 var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
