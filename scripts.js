@@ -19,8 +19,3 @@ var wmsLayer_ottobacias_tiete = L.Geoserver.wms('http://localhost:8080/geoserver
     attribution: 'ANA'
 });
 wmsLayer_ottobacias_tiete.addTo(map);
-
-var wfsLayer = L.Geoserver.wfs("http://localhost:8080/geoserver/wfs", {
-  layers: "teste:Ottobacias_Iguacu_BHO_2017_5k",
-});
-wfsLayer.addTo(map);
