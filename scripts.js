@@ -14,14 +14,6 @@ var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 });
 osm.addTo(map);
 
-var wmsLayer_ottobacias_tiete = L.Geoserver.wms('http://localhost:8080/geoserver/wms', {
-    layers: 'cite:ottobacias_tiete_bho_2017_5k',
-    CQL_FILTER: "cobacia like '8666%'",
-    attribution: 'ANA'
-});
-wmsLayer_ottobacias_tiete.addTo(map);
-
-
 var states = [{
     "type": "Feature",
     "properties": {"party": "Republican"},
