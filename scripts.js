@@ -6,7 +6,7 @@ function onEachFeature(feature, layer) {
 }
 
 //var map = L.map('map').setView([-25, -51], 7);    //set view bacia tietê e iguaçu
-var map = L.map('map').setView([46, -105], 5);
+var map = L.map('map').setView([-25.425, -49.220], 16);
 
 
 var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -60,7 +60,7 @@ L.geoJSON(states, {
     }
 }).addTo(map);
 
-
+/*
 var teste_geojson = {
     "type": "FeatureCollection",
     "name": "teste_geojson",
@@ -112,6 +112,12 @@ var teste_geojson = {
     }
     
 L.geoJSON(teste_geojson).addTo(map)
+*/
+
+$.getJSON('teste_geojson.geojson', function(data) {
+    L.geoJSON(data).addTo(map);
+});
+
 
 var geojsonFeature = {
     "type": "Feature",
