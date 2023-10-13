@@ -8,7 +8,6 @@ function onEachFeature(feature, layer) {
 //var map = L.map('map').setView([-25, -51], 7);    //set view bacia tietê e iguaçu
 var map = L.map('map').setView([-25.425, -49.220], 16);
 
-
 var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
@@ -61,6 +60,7 @@ L.geoJSON(states, {
 }).addTo(map);
 
 /*
+//Leitura de arquivo geojson como camada
 var teste_geojson = {
     "type": "FeatureCollection",
     "name": "teste_geojson",
@@ -114,85 +114,8 @@ var teste_geojson = {
 L.geoJSON(teste_geojson).addTo(map)
 */
 
+
+//Carregamento de arquivo geojson como camada 
 $.getJSON('teste_geojson.geojson', function(data) {
     L.geoJSON(data).addTo(map);
 });
-
-
-var geojsonFeature = {
-    "type": "Feature",
-    "properties": {
-        "name": "Coors Field",
-        "amenity": "Baseball Stadium",
-        "popupContent": "This is where the Rockies play!"
-    },
-    "geometry": {
-        "type": "Point",
-        "coordinates": [-104.99404, 39.75621]
-    }
-};
-
-//L.geoJSON(geojsonFeature).addTo(map)
-
-
-var geojsonMarkerOptions = {
-    radius: 8,
-    fillColor: "#ff7800",
-    color: "#000",
-    weight: 1,
-    opacity: 1,
-    fillOpacity: 0.7
-};
-
-/*
-L.geoJSON(geojsonFeature, {
-    pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, geojsonMarkerOptions);
-    }
-}).addTo(map);
-*/
-
-/*
-L.geoJSON(geojsonFeature, {
-    onEachFeature: onEachFeature,
-    pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, geojsonMarkerOptions);
-    }
-}).addTo(map);
-*/
-
-var someFeatures = [{
-    "type": "Feature",
-    "properties": {
-        "name": "Coors Field",
-        "amenity": "Baseball Stadium",
-        "popupContent": "This is where the Rockies play!",
-        "show_on_map": true
-    },
-    "geometry": {
-        "type": "Point",
-        "coordinates": [-104.99404, 39.75621]
-    }
-}, {
-    "type": "Feature",
-    "properties": {
-        "name": "Busch Field",
-        "amenity": "Local desconhecido",
-        "popupContent": "Não tenho informações sobre o que existe nesta localização!",
-        "show_on_map": true
-    },
-    "geometry": {
-        "type": "Point",
-        "coordinates": [-104.98404, 39.74621]
-    }
-}];
-
-L.geoJSON(someFeatures, {
-    filter: function(feature, layer) {
-        return feature.properties.show_on_map;
-    },
-    onEachFeature: onEachFeature,
-    pointToLayer: function (feature, latlng) {
-        return L.circleMarker(latlng, geojsonMarkerOptions);
-    }
-}).addTo(map);
