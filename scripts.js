@@ -6,7 +6,7 @@ function onEachFeature(feature, layer) {
 }
 
 //var map = L.map('map').setView([-25, -51], 7);    //set view bacia tietê e iguaçu
-var map = L.map('map').setView([-25.40, -49.23], 13);
+var map = L.map('map').setView([-25.8, -51.5], 8);
 
 /*
 //Carragamento de mapa OSM de fundo
@@ -26,6 +26,6 @@ var fundo_satelite = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z
 fundo_satelite.addTo(map);
 
 //Arquivo geojson de otto iguaçu
-$.getJSON('teste_otto_iguacu.geojson', function(data) {
+$.getJSON('data-1697550593913 - Copia.geojson', function(data) {
     L.geoJSON(data).addTo(map);
 });
