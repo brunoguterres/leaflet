@@ -17,11 +17,13 @@ var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 osm.addTo(map);
 */
 
+/*
 //Carregamento de imagem Google Maps de fundo
 var fundo_satelite = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
     maxZoom: 22,
     attribution: 'Imagem de satélite © <a href="https://www.google.com/maps">Google Maps</a>'
 }).addTo(map);
+*/
 
 fundo_satelite.addTo(map);
 
