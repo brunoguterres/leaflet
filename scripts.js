@@ -1,32 +1,38 @@
 function onEachFeature(feature, layer) {
-    // does this feature have a property named popupContent?
+    // Define um evento de clique para a camada
+    layer.on('click', function (e) {
+        // Obtém o valor do atributo "cobacia" da feição
+        var cobaciaValue = feature.properties.cobacia;
+        
+        // Cria um popup com o valor do atributo "cobacia"
+        var popupContent = "Cobacia: " + cobaciaValue;
+        
+        // Exibe o popup no local do clique
+        L.popup()
+            .setLatLng(e.latlng)
+            .setContent(popupContent)
+            .openOn(map);
+    });
+
+    // Outros comportamentos do popup se necessário
     if (feature.properties && feature.properties.popupContent) {
         layer.bindPopup(feature.properties.popupContent);
     }
 }
 
-//var map = L.map('map').setView([-25, -51], 7);    //set view bacia tietê e iguaçu
-var map = L.map('map').setView([-25.8, -51.5], 8);
-
-/*
-//Carragamento de mapa OSM de fundo
+//Adicionar camada de mapa OSM como base
 var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 });
-osm.addTo(map);
-*/
 
-
-//Carregamento de imagem Google Maps de fundo
-var fundo_satelite = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
+//Adicionar camada de imagem Google Maps como base
+var google_satelite = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
     maxZoom: 22,
     attribution: 'Imagem de satélite © <a href="https://www.google.com/maps">Google Maps</a>'
-}).addTo(map);
-fundo_satelite.addTo(map);
+});
 
-
-var wfsLayer = L.Geoserver.wfs('http://localhost:8080/geoserver/wfs', {
+var ottobacias = L.Geoserver.wfs('http://localhost:8080/geoserver/wfs', {
     layers: 'teste:__view_teste_iguacu',
     style: {
         color: '#000000',
@@ -35,5 +41,25 @@ var wfsLayer = L.Geoserver.wfs('http://localhost:8080/geoserver/wfs', {
         weight: '1',
     },
     attribution: 'ANA',
+    onEachFeature: onEachFeature
 });
-wfsLayer.addTo(map);
+
+var map = L.map('map', {
+    //center: [-25.8, -51.5],
+    center: [-15, -51.5],
+    zoom: 4,
+    layers: [osm, ottobacias]
+});
+
+var baseMaps = {
+    "OpenStreetMap": osm,
+    "Google Satelite": google_satelite
+};
+
+var overlayMaps = {
+    "Ottobacias": ottobacias
+};
+
+var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
+
+
