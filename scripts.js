@@ -27,7 +27,7 @@ var google_satelite = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&
 
 var ottobacias = L.Geoserver.wfs('http://localhost:8080/geoserver/wfs', {
     layers: 'teste:__view_teste_iguacu',
-    className: 'custom-polygon',
+    className: 'camada_ottobacias',
     attribution: 'ANA',
     onEachFeature: onEachFeature
 });
