@@ -13,20 +13,13 @@ function onEachFeature(feature, layer) {
             .setContent(popupContent)
             .openOn(map);
     });
-
-    // Outros comportamentos do popup se necessário
-    if (feature.properties && feature.properties.popupContent) {
-        layer.bindPopup(feature.properties.popupContent);
-    }
 }
 
-//Adicionar camada de mapa OSM como base
 var osm = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 19,
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 });
 
-//Adicionar camada de imagem Google Maps como base
 var google_satelite = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z={z}', {
     maxZoom: 22,
     attribution: 'Imagem de satélite © <a href="https://www.google.com/maps">Google Maps</a>'
@@ -61,5 +54,3 @@ var overlayMaps = {
 };
 
 var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
-
-
