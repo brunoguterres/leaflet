@@ -26,7 +26,7 @@ var fundo_satelite = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&z
 fundo_satelite.addTo(map);
 
 
-var wmsLayer = L.Geoserver.wfs('http://localhost:8080/geoserver/wfs', {
+var wfsLayer = L.Geoserver.wfs('http://localhost:8080/geoserver/wfs', {
     layers: 'teste:__view_teste_iguacu',
     style: {
         color: '#000000',
@@ -36,4 +36,4 @@ var wmsLayer = L.Geoserver.wfs('http://localhost:8080/geoserver/wfs', {
     },
     attribution: 'ANA',
 });
-wmsLayer.addTo(map);
+wfsLayer.addTo(map);
