@@ -6,3 +6,10 @@
 body {
     margin: 0;
  }
+
+.custom-polygon {
+    fill: blue;
+    fill-opacity: 0.5;
+    stroke: white;
+    stroke-width: 1;
+}

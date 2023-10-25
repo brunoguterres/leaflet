@@ -27,18 +27,12 @@ var google_satelite = L.tileLayer('https://mt1.google.com/vt/lyrs=s&x={x}&y={y}&
 
 var ottobacias = L.Geoserver.wfs('http://localhost:8080/geoserver/wfs', {
     layers: 'teste:__view_teste_iguacu',
-    style: {
-        color: '#000000',
-        fillColor: 'orange',
-        fillOpacity: '0.5',
-        weight: '1',
-    },
+    className: 'custom-polygon',
     attribution: 'ANA',
     onEachFeature: onEachFeature
 });
 
 var map = L.map('map', {
-    //center: [-25.8, -51.5],
     center: [-15, -51.5],
     zoom: 4,
     layers: [osm, ottobacias]
