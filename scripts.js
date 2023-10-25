@@ -28,8 +28,12 @@ fundo_satelite.addTo(map);
 
 var wmsLayer = L.Geoserver.wfs('http://localhost:8080/geoserver/wfs', {
     layers: 'teste:__view_teste_iguacu',
-    style: {color: "black", fillColor: "blue"},
+    style: {
+        color: '#000000',
+        fillColor: 'orange',
+        fillOpacity: '0.5',
+        weight: '1',
+    },
     attribution: 'ANA',
-    fitLayer: true
 });
 wmsLayer.addTo(map);
