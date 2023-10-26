@@ -1,13 +1,9 @@
 function onEachFeature(feature, layer) {
-    // Define um evento de clique para a camada
     layer.on('click', function (e) {
-        // Obtém o valor do atributo "cobacia" da feição
         var cobaciaValue = feature.properties.cobacia;
         
-        // Cria um popup com o valor do atributo "cobacia"
         var popupContent = "Cobacia: " + cobaciaValue;
         
-        // Exibe o popup no local do clique
         L.popup()
             .setLatLng(e.latlng)
             .setContent(popupContent)
