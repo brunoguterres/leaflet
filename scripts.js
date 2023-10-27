@@ -27,19 +27,12 @@ var baseOpenStreetMap = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 });
 
-var ottobacias = L.Geoserver.wms('http://191.252.221.146:8080/geoserver/wms', {
-    layers: 'topp:states',
-    attribution: 'ANA'
-});
-
-/*
 var ottobacias = L.Geoserver.wfs('http://localhost:8080/geoserver/wfs', {
     layers: 'teste:__view_teste_iguacu',
     className: 'camada_ottobacias',
     attribution: 'ANA',
     onEachFeature: onEachFeature
 });
-*/
 
 var map = L.map('map', {
     center: [-15, -51.5],
