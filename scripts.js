@@ -31,7 +31,14 @@ var ottobacias = L.Geoserver.wfs('http://localhost:8080/geoserver/wfs', {
     layers: 'teste:__view_teste_iguacu',
     className: 'camada_ottobacias',
     attribution: 'ANA',
+    CQL_FILTER: "cobacia LIKE '8628%'",
     onEachFeature: onEachFeature
+});
+
+var ottobacias_montante = L.Geoserver.wfs('http://localhost:8080/geoserver/wfs', {
+    layers: 'teste:__view_teste_iguacu',
+    className: 'camada_ottobacias_montante',
+    CQL_FILTER: "cobacia LIKE '86286%'"
 });
 
 var map = L.map('map', {
@@ -47,7 +54,8 @@ var baseMaps = {
 };
 
 var overlayMaps = {
-    "Ottobacias": ottobacias
+    "Ottobacias": ottobacias,
+    "Ottobacias à Montante": ottobacias_montante
 };
 
 var layerControl = L.control.layers(baseMaps, overlayMaps).addTo(map);
