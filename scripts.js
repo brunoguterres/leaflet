@@ -7,7 +7,7 @@ function onEachFeature(feature, layer) {
             cobaciaValueEdit = cobaciaValueEdit.slice(0, -1); // Remove o último dígito
         };
     
-        var popupContent = "Cobacia Original: " + cobaciaValue + "<br>Cobacia Editada: " + cobaciaValueEdit;
+        var popupContent = "CobaciaValue: " + cobaciaValue + "<br>CobaciaValueEdit: " + cobaciaValueEdit;
         
         L.popup()
             .setLatLng(e.latlng)
