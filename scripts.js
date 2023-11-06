@@ -48,12 +48,12 @@ var baseOpenStreetMap = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 });
 
-var ottobacias = L.Geoserver.wfs('http://191.252.221.146:8080/geoserver/wfs', {
-    layers: 'teste_shapefile:ottobacias_iguacu_5k',
-    className: 'camada_ottobacias',
+var ottotrechos = L.Geoserver.wfs('http://191.252.221.146:8080/geoserver/wfs', {
+    layers: 'teste_shapefile:ottotrechos_iguacu_5k',
+    //className: 'camada_ottobacias',
     attribution: 'ANA',
-    CQL_FILTER: "cobacia LIKE '8628%'",
-    onEachFeature: onEachFeature
+    CQL_FILTER: "cobacia LIKE '86288%'",
+    //onEachFeature: onEachFeature
 });
 
 var ottobacias = L.Geoserver.wfs('http://191.252.221.146:8080/geoserver/wfs', {
@@ -77,7 +77,8 @@ var baseMaps = {
 };
 
 var overlayMaps = {
-    "Ottobacias": ottobacias
+    "Ottobacias": ottobacias,
+    "Ottotrechos": ottotrechos
 };
 
 var layerControl = L.control.layers(baseMaps, overlayMaps);
