@@ -7,7 +7,7 @@ function onEachFeature(feature, layer) {
             cobaciaEdit = cobaciaEdit.slice(0, -1); // Remove o último dígito
         };
     
-        var popupContent = "CobaciaValue: " + cobaciaValue + "<br>CobaciaValueEdit: " + cobaciaEdit;
+        var popupContent = "CobaciaValue: " + cobaciaValue + "<br>CobaciaEdit: " + cobaciaEdit;
         
         L.popup()
             .setLatLng(e.latlng)
@@ -16,6 +16,7 @@ function onEachFeature(feature, layer) {
         
         var ottobaciasMontante = L.Geoserver.wfs('http://191.252.221.146:8080/geoserver/wfs', {
             layers: 'teste_shapefile:ottobacias_iguacu_5k',
+            fitLayer: false,
             className: 'camada_ottobacias_montante',
             CQL_FILTER: "cobacia LIKE '"+cobaciaEdit+"%' AND cobacia > '"+cobaciaValue+"'"
         });
@@ -23,6 +24,7 @@ function onEachFeature(feature, layer) {
         
         var ottobaciaSelecionada = L.Geoserver.wfs('http://191.252.221.146:8080/geoserver/wfs', {
             layers: 'teste_shapefile:ottobacias_iguacu_5k',
+            fitLayer: false,
             className: 'camada_ottobacias_selecionada',
             CQL_FILTER: "cobacia LIKE '"+cobaciaValue+"'"
         });
