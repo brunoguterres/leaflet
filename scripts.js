@@ -52,7 +52,7 @@ var ottotrechos = L.Geoserver.wfs('http://191.252.221.146:8080/geoserver/wfs', {
     layers: 'teste_shapefile:ottotrechos_iguacu_5k',
     //className: 'camada_ottobacias',
     attribution: 'ANA',
-    CQL_FILTER: "cobacia LIKE '86288%'",
+    //CQL_FILTER: "cobacia LIKE '86288%'",
     //onEachFeature: onEachFeature
 });
 
